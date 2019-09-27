@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "python tivix/manage.py makemigrations && python tivix/manage.py migrate && python tivix/manage.py runserver 0.0.0.0:8080"
+    container_name: backend_service
+    volumes:
+      - .:/backend_service
+    ports:
+      - "8080:8080"
+
+  ui:
+    build: .
+    command: bash -c "python -m http.server --directory=./tivix-ui/dist/tblog-app"
+    container_name: ui_service
+    volumes:
+    - .:/ui_service
+    ports:
+    - "8000:8000"
