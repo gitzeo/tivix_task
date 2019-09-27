@@ -1,0 +1,17 @@
+<div class="card border-primary">
+    <div class="card-header">
+        Post
+
+        <span class="float-right">
+            <a class="btn btn-primary mr-1" [routerLink]="'/postlist'">Posts</a>
+            <a class="btn btn-primary" [routerLink]="'/editpost/'+post.id">Edit</a>
+        </span>
+        
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.description}}</p>
+    </div>
+    <div class="card-footer">{{post.created}}</div>
+</div>

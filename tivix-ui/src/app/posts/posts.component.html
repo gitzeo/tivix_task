@@ -1,0 +1,29 @@
+<div class="card border-primary">
+<div class="card-header">
+    Posts
+    <span class="float-right"><a class="btn btn-primary" [routerLink]="'/addpost'">Add Post</a></span>
+    
+</div>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Post Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of plist">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.title}}</td>
+        <td>{{item.created}}</td>
+        <td>
+                <a type="button" class="btn btn-secondary btn-sm mr-1" [routerLink]="'/viewpost/'+item.id">View</a>
+                <a type="button" class="btn btn-secondary btn-sm mr-1" [routerLink]="'/editpost/'+item.id">Edit</a>
+                <button type="button" class="btn btn-secondary btn-sm mr-1" (click)="delete(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
